@@ -22,6 +22,10 @@ import userRoute from './Routes/user.router.js';
 app.use('/api/v1/user', userRoute);
 app.use('/api/v1/message', messageRoute);
 
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
+
 //middlewares
 import { errorMiddleware } from './Middlewares/error.middleware.js';
 app.use(errorMiddleware);
