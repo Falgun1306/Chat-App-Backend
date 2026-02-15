@@ -1,0 +1,10 @@
+🧠 What is "Business Logic"?
+Business Logic is the core functionality of your application — the rules that define how data is processed, validated, and acted upon.
+
+It answers questions like:
+
+What happens when a user registers?
+
+How is a message saved?
+
+Can this user delete this message?
