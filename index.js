@@ -8,7 +8,11 @@ connectDB();
 
 
 //if we use this middleware we do not need to manuallly parse the json
-app.use(cors());
+app.use(
+    cors({
+      origin: process.env.CLIENT_URL,
+      credentials: true,
+    }));
 app.use(express.json());
 app.use(cookieParser());
 
@@ -22,10 +26,13 @@ app.get("/", (req, res) => {
   res.send("Backend is running 🚀");
 });
 
+
 //middlewares
 import { errorMiddleware } from './Middlewares/error.middleware.js';
 app.use(errorMiddleware);
 
-server.listen(3000, ()=>{
-    console.log("Server is runnig on PORT 3000...");
-})
+const PORT = process.env.PORT || 3000;
+
+server.listen(PORT, () => {
+  console.log(`Server running on ${PORT}`);
+});
